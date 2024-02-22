@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        double t1, t2, t3;
+        Console.WriteLine("Digite a nota do primeiro teste/trabalho:");
+        t1 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Digite a nota do segundo teste/trabalho:");
+        t2 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Digite a nota do terceiro teste/trabalho:");
+        t3 = double.Parse(Console.ReadLine());
+
+        if (aprovado(t1, t2, t3))
+        {
+            Console.WriteLine("Aluno aprovado!");
+        }
+        else
+        {
+            Console.WriteLine("Aluno reprovado.");
+        }
+    }
+
+    static bool aprovado(double t1, double t2, double t3)
+    {
+        double media = (t1 + t2 + t3) / 3;
+        return (media >= 9.5 && t1 > 6.5 && t2 > 6.5 && t3 > 6.5);
+    }
+}
