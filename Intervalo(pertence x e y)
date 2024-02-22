@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        double x, y, z;
+        Console.WriteLine("Digite o valor de x:");
+        x = double.Parse(Console.ReadLine());
+        Console.WriteLine("Digite o valor de y:");
+        y = double.Parse(Console.ReadLine());
+        Console.WriteLine("Digite o valor de z:");
+        z = double.Parse(Console.ReadLine());
+
+        bool resultado = pertence(x, y, z);
+
+        if (resultado)
+        {
+            Console.WriteLine("x pertence ao intervalo ]y,z[");
+        }
+        else
+        {
+            Console.WriteLine("x não pertence ao intervalo ]y,z[");
+        }
+    }
+
+    static bool pertence(double k, double min, double max)
+    {
+        return (k > min && k < max);
+    }
+}
