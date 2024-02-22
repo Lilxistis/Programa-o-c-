@@ -1,0 +1,20 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            Console.WriteLine("Digite o raio do círculo:");
+            double raio = double.Parse(Console.ReadLine());
+            double perimetro = perimetroCirculo(raio);
+            Console.WriteLine("O perímetro do círculo é: " + perimetro);
+        }
+    }
+
+    static double perimetroCirculo(double r)
+    {
+        return 2 * Math.PI * r;
+    }
+}
