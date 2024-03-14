@@ -1,0 +1,212 @@
+//Declare um array 5 x 5. Preencha com 1 a diagonal principal e com 0 os demais elementos.
+//grupo 2
+
+using System;
+
+namespace II_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] a = { { 1, 0, 0, 0, 0 }, { 0, 1, 0, 0, 0 }, { 0, 0, 1, 0, 0 }, { 0, 0, 0, 1, 0 }, { 0, 0, 0, 0, 1 } };
+            EscreverDados(a);
+
+            Console.ReadKey();
+        }
+
+        static void EscreverDados(int[,] a)
+        {
+            for (int i = 0; i < a.GetLength(0); i++)
+            {
+                for (int j = 0; j < a.GetLength(1); j++)
+                {
+                    Console.Write(a[i, j] + " | ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+// --------------grupo 2
+
+using System;
+
+namespace II_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] a = {
+                { 0, 1, 2, 3 },
+                { 1, 2, 3, 4 },
+                { 2, 3, 4, 5 },
+                { 3, 4, 5, 6 }
+            };
+
+            EscreverMatriz(a);
+
+            int numeroDeElementos = a.GetLength(0) * a.GetLength(1);
+            int soma = 0;
+
+            for (int i = 0; i < a.GetLength(0); i++)
+            {
+                for (int j = 0; j < a.GetLength(1); j++)
+                {
+                    soma += a[i, j];
+                }
+            }
+
+            double media = (double)soma / numeroDeElementos;
+
+            Console.WriteLine($"Número de elementos: {numeroDeElementos}");
+            Console.WriteLine($"Média: {media}");
+
+            Console.ReadKey();
+        }
+
+        static void EscreverMatriz(int[,] a)
+        {
+            for (int i = 0; i < a.GetLength(0); i++)
+            {
+                for (int j = 0; j < a.GetLength(1); j++)
+                {
+                    Console.Write(a[i, j] + " | ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+//-------------------grupo 1, ex 1
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _1_a
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] cores = { "laranja", "verde", "azul","amarelo", "castanho", "preto"};
+            Array.Sort(cores);
+            Console.WriteLine("Array com ordenação ascendente:");
+            escreverarrayAscendente(cores);
+
+            Array.Reverse(cores);
+
+            Console.WriteLine("Array com ordenação descendente:");
+            escreverarrayDescendente(cores);
+
+            cores[0] = "lilás";
+            cores[cores.Length - 2] = "rosa";
+
+            Console.WriteLine("Array com ordenação alterada:");
+            escreverarrayAscendente(cores);
+            Console.ReadKey();
+        }
+
+        static void escreverarrayAscendente(string[] cores)
+        {
+            foreach (string cor in cores)
+            {
+                if (cor == cores[cores.Length - 1])
+                {
+                    Console.Write($"\"{cor}\"");
+                }
+                else
+                {
+                    Console.Write($"\"{cor}\"->");
+                }
+            }
+            Console.WriteLine();
+        }
+
+        static void escreverarrayDescendente(string[] cores)
+        {
+            foreach (string cor in cores)
+            {
+                if (cor == cores[cores.Length - 1])
+                {
+                    Console.Write($"\"{cor}\"");
+                }
+                else
+                {
+                    Console.Write($"\"{cor}\"<-");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}
+//---------------------grupo 1 ex 2
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _1_b
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] numeros = { -1.5, 2.6, 45.3, 3.4, 2.6, -1.5, 5.7 };
+
+            
+            Console.WriteLine("Elementos maiores que o último elemento do array:");
+            foreach (double num in numeros)
+            {
+                if (num > numeros[numeros.Length - 1])
+                {
+                    Console.WriteLine(num);
+                }
+            }
+
+           
+            double soma = 0;
+            foreach (double num in numeros)
+            {
+                soma += num;
+            }
+            double media = soma / numeros.Length;
+
+            Console.WriteLine($"Soma dos elementos: {soma}");
+            Console.WriteLine($"Média dos elementos: {media}");
+
+            
+            double menor = numeros[0];
+            double maior = numeros[0];
+            foreach (double num in numeros)
+            {
+                if (num < menor)
+                    menor = num;
+                if (num > maior)
+                    maior = num;
+            }
+
+            Console.WriteLine($"Menor valor: {menor}");
+            Console.WriteLine($"Maior valor: {maior}");
+
+           
+            int ultimoMenorIndex = Array.LastIndexOf(numeros, menor);
+            Console.WriteLine($"Índice da última posição do menor valor: {ultimoMenorIndex}");
+
+            
+            int primeiroMenorIndex = Array.IndexOf(numeros, menor);
+            Console.WriteLine($"Índice da primeira posição do menor valor: {primeiroMenorIndex}");
+
+            Console.ReadKey();
+        }
+    }
+}
+
